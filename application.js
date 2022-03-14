@@ -33,8 +33,9 @@ app.put("/api/addresses/:id", (req, res) => {
 });
 
 app.delete("/api/addresses/:id", (req, res) => {
+  const { id } = req.params;
   const updatedList = allAddress.filter(
-    (item) => Number(item.id) !== Number(req.params.id)
+    (item) => Number(item.id) !== Number(id)
   );
   res.json(updatedList);
 });
